@@ -81,11 +81,6 @@ Pixel curp=q.front();
 q.pop();
 int curX=curp.x;
 int curY=curp.y;
-//cout<<"-------------------------------------------"<<endl;
-//cout<<"curx:"<<curX<<endl;
-//cout<<"curY:"<<curY<<endl;
-//cout<<"pvalue:"<<arr[curX][curY]<<endl;
-//cout<<"-------------------------------------------"<<endl;
 for(int i=0;i<4;i++){
  int nextX=curX+dx[i];
  int nextY=curY+dy[i];
@@ -97,7 +92,6 @@ for(int i=0;i<4;i++){
     visr[nextX][nextY]=true;
     curp.value++;
     distance[x][y]=curp.value;
-  //  cout<<"The end of pixel inquery is:"<<"["<<nextX<<","<<nextY<<"]:"<<arr[nextX][nextY]<<endl;
     queue<Pixel>empq;
     swap(empq,q);
     break;
@@ -110,24 +104,16 @@ for(int i=0;i<4;i++){
 	 int a=0;
          Pixel next=Pixel(nextX,nextY,a);
 	 next.value=curp.value+1;
-    //     cout<<"Pixel"<<"["<<nextX<<","<<nextY<<"]:"<<arr[nextX][nextY]<<endl;
          q.push(next);
 	  }
 	 }
    }
  }
-//arr[x][y]=0;
-cout<<"---------------------------------------------"<<endl;
-cout<<"points"<<"["<<x<<","<<y<<"] :"<<temp<<endl;
-cout<<"minVal is:"<<distance[x][y]<<endl;
-cout<<"---------------------------------------------"<<endl;
 }
 
 int main(){
 int rows=16;
 int cols=16;
-//int arr[16][16]={0};
-
 int **arr=new int*[rows];
 int **distance=new int*[rows];
 for(int i=0;i<rows;i++){
@@ -153,16 +139,10 @@ for(int i=0;i<16;i++){
   cout<<endl;
 }
 cout<<endl;
-
-bfs(7,7,arr,distance,rows,cols);
-
-cout<<endl;
-
 for(int i=0;i<16;i++){
   for(int j=0;j<16;j++){
   cout<<arr[i][j];
   cout<<" ";
-
   }
   cout<<endl;
 }
@@ -177,8 +157,6 @@ for(int i=0;i<16;i++){
  }
   }
 }
-
-cout<<"maxVal is:"<<maxdist<<endl;
 
 for(int i=0;i<16;i++){
   for(int j=0;j<16;j++){
@@ -199,6 +177,4 @@ for(int i=0;i<16;i++){
   cout<<endl;
 }
 cout<<endl;
-
-
 }
